@@ -20,4 +20,3 @@ py~=1.8.1
 cache~=1.0.3
 setuptools~=40.8.0
 pytest~=5.3.5
-telegram~=0.0.1

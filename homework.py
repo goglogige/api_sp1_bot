@@ -21,7 +21,6 @@ PRACTICUM_TOKEN = os.getenv('PRACTICUM_TOKEN')
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 homework_api_url = f'https://praktikum.yandex.ru/api/user_api/homework_statuses/'
-bot = telegram.Bot(token=TELEGRAM_TOKEN)
 
 
 def parse_homework_status(homework):
@@ -54,15 +53,15 @@ def get_homework_statuses(current_timestamp):
 
 
 def send_message(message):
-    # try:
-    #     bot = telegram.Bot(token=TELEGRAM_TOKEN)
-    # except requests.exceptions.RequestException as error:
-    #     logging.error(error)
-    #     return error
-    # else:
-    #     logging.info('Success, message sent!')
-    #     return bot.send_message(chat_id=CHAT_ID, text=message)
-    return bot.send_message(chat_id=CHAT_ID, text=message)
+    try:
+        bot = telegram.Bot(token=TELEGRAM_TOKEN)
+    except requests.exceptions.RequestException as error:
+        logging.error(error)
+        return error
+    else:
+        logging.info('Success, message sent!')
+        return bot.send_message(chat_id=CHAT_ID, text=message)
+
 
 
 def main():
