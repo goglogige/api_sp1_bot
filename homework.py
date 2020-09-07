@@ -65,7 +65,8 @@ def send_message(message):
 
 
 def main():
-    current_timestamp = time.time()
+    current_timestamp = 1597527258
+    # current_timestamp = time.time()
 
     while True:
         try:
